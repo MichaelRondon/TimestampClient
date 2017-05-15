@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk1.8.0_121\bin\xjc.exe" "C:\Users\acost\OneDrive\Documentos\NetBeansProjects\TimeStampClient\timestampclient\src\main\resources\xsd\RespuestaXML.xsd" -d "C:\Users\acost\OneDrive\Documentos\NetBeansProjects\TimestampClient\timestampclient\src\main\java" -p edu.puj.aes.modyval.timestampclient.jaxb
