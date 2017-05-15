@@ -5,8 +5,11 @@
  */
 package edu.puj.aes.modyval.timestampclient.rest;
 
+import edu.puj.aes.modyval.timestampclient.Application;
 import edu.puj.aes.modyval.timestampclient.jaxb.Helloword;
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -22,38 +25,42 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 @RequestMapping("/api")
 public class TimestampClientController {
-
-    public static final String TIMESTAMP_HOST = "localhost";
-    public static final String TIMESTAMP_PORT = "8081";
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+    
+    public static final String TIMESTAMP_HOST = "timestamp-test";
+    public static final String TIMESTAMP_PORT = "4000";
     public static final String TIMESTAMP_ENDPOINT = "/api/timestamp";
     public static final String CLIENT_MESSAGE = "Hello World! Timestamp:";
-
+    
     @Autowired
     private RestTemplate restTemplate;
-
+    
     @RequestMapping(value = "/timestamp-client",
             method = RequestMethod.GET,
-             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
     public @ResponseBody
-    Helloword getTimestamp() {
+    Helloword getHelloWorld() {
         Helloword helloword = new Helloword();
         helloword.setMessage(this.executeTimestampQuery());
         return helloword;
     }
-
+    
     @RequestMapping(value = "/timestamp-client",
             method = RequestMethod.GET,
-             produces = {MediaType.TEXT_HTML_VALUE, MediaType.TEXT_PLAIN_VALUE}
+            produces = {MediaType.TEXT_HTML_VALUE, MediaType.TEXT_PLAIN_VALUE}
     )
-    public @ResponseBody String getTimestampText() {
+    public @ResponseBody
+    String getHelloWorldText() {
         return executeTimestampQuery();
     }
-
+    
     private String executeTimestampQuery() {
         String urlRequest = String.format("http://%s:%s%s", TIMESTAMP_HOST, TIMESTAMP_PORT, TIMESTAMP_ENDPOINT);
+        LOGGER.info("Intenta petición a {}", urlRequest);
         String response = restTemplate.getForObject(urlRequest, String.class);
         return String.format("%s%s", CLIENT_MESSAGE, response);
     }
-
+    
 }

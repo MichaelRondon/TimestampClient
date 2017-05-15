@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class Application {
 
-	private static final Logger log = LoggerFactory.getLogger(Application.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String args[]) {
 		SpringApplication.run(Application.class);
@@ -34,11 +34,11 @@ public class Application {
 
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
-            log.info("\n\n****MR");
+            LOGGER.info("\n\n****MR");
 		return args -> {
 			Object quote = restTemplate.getForObject(
 					"http://gturnquist-quoters.cfapps.io/api/random", Object.class);
-			log.info(quote.toString());
+			LOGGER.info(quote.toString());
 		};
 	}
     
