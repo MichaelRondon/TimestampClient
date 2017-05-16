@@ -6,7 +6,7 @@ Desarrolladores:
 	- David Camacho
 	- Diego Sánchez
 	- Felipe Grisales
-  - Marcela Vaquiro
+	- Marcela Vaquiro
 	- Michael Rondón
 
 Requisitos ejecución:
