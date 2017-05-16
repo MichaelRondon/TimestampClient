@@ -13,33 +13,38 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  *
  * @author acost
  */
 @SpringBootApplication
+@EnableSwagger2
 public class Application {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
-	public static void main(String args[]) {
-		SpringApplication.run(Application.class);
-	}
+    public static void main(String args[]) {
+        SpringApplication.run(Application.class);
+    }
 
-	@Bean
-	public RestTemplate restTemplate(RestTemplateBuilder builder) {
-		return builder.build();
-	}
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
+    }
 
-	@Bean
-	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
-            LOGGER.info("\n\n****MR");
-		return args -> {
-			Object quote = restTemplate.getForObject(
-					"http://gturnquist-quoters.cfapps.io/api/random", Object.class);
-			LOGGER.info(quote.toString());
-		};
-	}
-    
+    @Bean
+    public Docket swaggerSettings() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
+                .build();
+    }
+
 }
