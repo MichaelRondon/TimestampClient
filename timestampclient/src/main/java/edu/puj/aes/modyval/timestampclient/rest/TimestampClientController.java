@@ -28,8 +28,8 @@ public class TimestampClientController {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
     
-    public static final String TIMESTAMP_HOST = "timestamp-test";
-    public static final String TIMESTAMP_PORT = "4000";
+    public static final String TIMESTAMP_HOST = "timestamp";
+    public static final String TIMESTAMP_PORT = "8080";
     public static final String TIMESTAMP_ENDPOINT = "/api/timestamp";
     public static final String CLIENT_MESSAGE = "Hello World! Timestamp:";
     
