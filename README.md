@@ -31,8 +31,10 @@ Prueba:
 Uso de Docker Link: (Requiere que el contenedor TimeStampTest: https://github.com/MichaelRondon/TimeStampTest)
   - Ejecutar el archivo EjecutarLink.bat
   - Utilizar una herramienta para consumir servicios REST con los siguientes parámetros:
-    -- Método GET
-    -- Header con cualquiera de los siguientes valores: {"Accept":"application/json"} ó {"Accept":"application/xml"} ó {"Accept":"text/plain"} ó {"Accept":"text/html"}
-    -- Endpoint http://DOCKER_HOST:4001/api/timestamp-client
+	-- Método GET
+	
+	-- Endpoint http://DOCKER_HOST:4001/api/timestamp-client
+	
+	-- Header con cualquiera de los siguientes valores: {"Accept":"application/json"} ó {"Accept":"application/xml"} ó {"Accept":"text/plain"} ó {"Accept":"text/html"}
 
     
