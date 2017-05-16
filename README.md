@@ -3,11 +3,11 @@ Servicio REST con Springboot para probar la conexión entre contenedores de dock
 
 Desarrolladores: 
   
-	- David Camacho
-	- Diego Sánchez
-	- Felipe Grisales
-	- Marcela Vaquiro
-	- Michael Rondón
+	David Camacho
+	Diego Sánchez
+	Felipe Grisales
+	Marcela Vaquiro
+	Michael Rondón
 
 Requisitos ejecución:
 
