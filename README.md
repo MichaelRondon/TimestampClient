@@ -17,7 +17,7 @@ Requisitos de instalación:
 
   - Maven https://maven.apache.org/install.html
 
-Uso con Docker: Si se tiene instalado Docker y Maven:
+Uso con Docker: (Si se tiene instalado Docker y Maven)
 
   - Descargar el repositorio.
   - Descomprimir el contenido.
